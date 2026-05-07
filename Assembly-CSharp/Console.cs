@@ -16,7 +16,7 @@ namespace Modding
         
         private readonly List<string> _messages = new(25);
         
-        private KeyCode _toggleKey = KeyCode.F10;
+        private KeyCode _toggleKey = KeyCode.C;
         private int _maxMessageCount = 25;
         private int _fontSize = 12;
 
@@ -128,7 +128,7 @@ namespace Modding
         [PublicAPI]
         public void Update()
         {
-            if (!Input.GetKeyDown(_toggleKey))
+            if (!(Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.LeftCommand)) || !Input.GetKeyDown(_toggleKey))
             {
                 return;
             }
